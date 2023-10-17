@@ -7,7 +7,6 @@ import UserImage from './UserImage';
 import FlexBetween from './FlexBetween';
 import {setPost} from "state";
 import DeleteIcon from "@mui/icons-material/Delete";
-import {Url } from 'Url';
 
 function Comment({userId,comment,postId}) {
 const token = useSelector((state)=>state.token)
@@ -18,7 +17,7 @@ const { palette } = useTheme();
 const main = palette.neutral.main;
 
 const getCommentUser = async() => {
-  const response = await fetch(`${Url}/users/${userId}`, {
+  const response = await fetch(`${process.env.REACT_APP_URL}/users/${userId}`, {
     method: "GET",
     headers: { Authorization: `Bearer ${token}` },
   });
@@ -27,7 +26,7 @@ const getCommentUser = async() => {
 };
 
 const handleDeleteComment = async() => {
-  const response = await fetch(`${Url}/posts/${postId}/${userId}/comment/delete`,{
+  const response = await fetch(`${process.env.REACT_APP_URL}/posts/${postId}/${userId}/comment/delete`,{
     method:"PATCH",
     headers: {
       Authorization: `Bearer ${token}`,

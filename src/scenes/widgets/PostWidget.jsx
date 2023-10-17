@@ -12,7 +12,6 @@ import {
   import { useDispatch, useSelector } from "react-redux";
   import { setPosts,setPost } from "state";
   import Comment from "components/Comment";
-  import {Url } from 'Url.js'
   
   const PostWidget = ({
     postId,
@@ -38,7 +37,7 @@ import {
     const primary = palette.primary.main;
   
     const patchLike = async () => {
-      const response = await fetch(`${Url}/posts/${postId}/like`, {
+      const response = await fetch(`${process.env.REACT_APP_URL}/posts/${postId}/like`, {
         method: "PATCH",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -51,7 +50,7 @@ import {
     };
 
     const handleComment = async() => {
-      const response = await fetch(`${Url}/posts/${postId}/${loggedInUserId}/comment`,{
+      const response = await fetch(`${process.env.REACT_APP_URL}/posts/${postId}/${loggedInUserId}/comment`,{
         method:"POST",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -65,7 +64,7 @@ import {
     };
 
     const handleDeletePost = async() =>{
-      const response = await fetch(`${Url}/posts/${postId}/delete`,{
+      const response = await fetch(`${process.env.REACT_APP_URL}/posts/${postId}/delete`,{
         method:"PATCH",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -96,7 +95,7 @@ import {
             height="auto"
             alt="post"
             style={{ borderRadius: "0.75rem", marginTop: "0.75rem" }}
-            src={`${Url}/assets/${picturePath}`}
+            src={`${process.env.REACT_APP_URL}/assets/${picturePath}`}
           />
         )}
         <FlexBetween mt="0.25rem">

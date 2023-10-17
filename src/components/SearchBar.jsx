@@ -4,7 +4,6 @@ import {
     Autocomplete, TextField ,
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-import {Url } from 'Url';
 
 const SearchBar = () => {
   
@@ -17,7 +16,7 @@ const SearchBar = () => {
 
 
   const fetchData = (value) => {
-    fetch(`${Url}/users`, {
+    fetch(`${process.env.REACT_APP_URL}/users`, {
         method: "GET",
         headers: {
           Authorization: `Bearer ${token}`,

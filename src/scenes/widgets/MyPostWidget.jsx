@@ -24,7 +24,6 @@ import WidgetWrapper from "components/WidgetWrapper";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setPosts } from "state";
-import {Url } from 'Url.js'
 
 const MyPostWidget = ({ picturePath }) => {
   const dispatch = useDispatch();
@@ -47,7 +46,7 @@ const MyPostWidget = ({ picturePath }) => {
       formData.append("picturePath", image.name);
     }
 
-    const response = await fetch(`${Url}/posts`, {
+    const response = await fetch(`${process.env.REACT_APP_URL}/posts`, {
       method: "POST",
       headers: { Authorization: `Bearer ${token}` },
       body: formData,

@@ -1,5 +1,4 @@
 import { Box } from "@mui/material";
-import {Url } from 'Url';
 
 const UserImage= ({image, size='60px'})=>{
     return(
@@ -9,7 +8,7 @@ const UserImage= ({image, size='60px'})=>{
           width={size}
           height={size}
           alt="user"
-          src={`${Url}/assets/${image}`}
+          src={`${process.env.REACT_APP_URL}/assets/${image}`}
         />
       </Box>
     )
