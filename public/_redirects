@@ -1,0 +1,9 @@
+
+/*    /index.html   200
+
+/auth/*    https://connectbackend-6fhv.onrender.com/auth/:splat  200
+/posts/*   https://connectbackend-6fhv.onrender.com/posts/:splat 200
+/users/*   https://connectbackend-6fhv.onrender.com/users/:splat 200
+
+
+/assets/*  /public/assets/:splat 200
